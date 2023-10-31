@@ -4,7 +4,7 @@ public class Sensor {
 
     double latitude, longitude;
     String ip;
-    int port;
+    int port, id;
 
     public Sensor() {
     }
@@ -46,6 +46,14 @@ public class Sensor {
 
     public void setPort(int port) {
         this.port = port;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     //  TODO
