@@ -4,8 +4,8 @@ import hr.fer.tel.rassus.server.beans.Reading;
 
 public class ReadingPostRepresentation {
 
-    private double temperature, pressure, humidity, co, no2, so2;
-    private Long id;
+    private double temperature, pressure, humidity;
+    private Double co, no2, so2;
 
     public ReadingPostRepresentation() {
     }
@@ -17,7 +17,6 @@ public class ReadingPostRepresentation {
         this.co = reading.getCo();
         this.no2 = reading.getNo2();
         this.so2 = reading.getSo2();
-        this.id = reading.getId();
 
     }
 
@@ -45,35 +44,28 @@ public class ReadingPostRepresentation {
         this.humidity = humidity;
     }
 
-    public double getCo() {
+    public Double getCo() {
         return co;
     }
 
-    public void setCo(double co) {
+    public void setCo(Double co) {
         this.co = co;
     }
 
-    public double getNo2() {
+    public Double getNo2() {
         return no2;
     }
 
-    public void setNo2(double no2) {
+    public void setNo2(Double no2) {
         this.no2 = no2;
     }
 
-    public double getSo2() {
+    public Double getSo2() {
         return so2;
     }
 
-    public void setSo2(double so2) {
+    public void setSo2(Double so2) {
         this.so2 = so2;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

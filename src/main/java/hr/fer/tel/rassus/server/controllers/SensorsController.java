@@ -48,7 +48,7 @@ public class SensorsController {
 
     @GetMapping("/getclosestneighbor")
     public SensorPostRepresentation getClosestNeighbor(
-            @RequestBody SensorRepresentation sensorRepresentation) {
-        return sensorService.getClosestNeighbor(sensorRepresentation.getLongitude(), sensorRepresentation.getLatitude());
+            @RequestParam double longitude, @RequestParam double latitude) {
+        return sensorService.getClosestNeighbor(longitude, latitude);
     }
 }

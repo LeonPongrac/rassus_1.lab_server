@@ -1,6 +1,7 @@
 package hr.fer.tel.rassus.server.controllers;
 
 import hr.fer.tel.rassus.server.beans.Reading;
+import hr.fer.tel.rassus.server.representations.ReadingIdPostRepresentation;
 import hr.fer.tel.rassus.server.representations.ReadingPostRepresentation;
 import hr.fer.tel.rassus.server.representations.ReadingRepresentation;
 import hr.fer.tel.rassus.server.representations.SensorPostRepresentation;
@@ -32,9 +33,9 @@ public class ReadingController {
     }
 
     @GetMapping
-    public List<ReadingPostRepresentation> getReadings(@RequestParam long sensorId) {
+    public List<ReadingIdPostRepresentation> getReadings(@RequestParam long sensorId) {
         return readingService.getReadings(sensorId).stream()
-                .map(p -> new ReadingPostRepresentation(p))
+                .map(p -> new ReadingIdPostRepresentation(p))
                 .collect(Collectors.toList());
     }
 

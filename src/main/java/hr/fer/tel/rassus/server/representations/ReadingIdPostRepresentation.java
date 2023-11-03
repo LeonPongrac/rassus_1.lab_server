@@ -1,24 +1,20 @@
-package hr.fer.tel.rassus.server.beans;
+package hr.fer.tel.rassus.server.representations;
 
-import javax.persistence.*;
-import java.util.LinkedList;
-import java.util.List;
+import hr.fer.tel.rassus.server.beans.Reading;
 
-@Entity
-public class Reading {
-  //  TODO
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class ReadingIdPostRepresentation {
     private double temperature, pressure, humidity;
     private Double co, no2, so2;
+    private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "sensor_id")
-    private Sensor sensor;
-
-    public Reading() {
+    public ReadingIdPostRepresentation(Reading reading) {
+        this.temperature = reading.getTemperature();
+        this.pressure = reading.getPressure();
+        this.humidity = reading.getHumidity();
+        this.co = reading.getCo();
+        this.no2 = reading.getNo2();
+        this.so2 = reading.getSo2();
+        this.id = reading.getId();
     }
 
     public double getTemperature() {
@@ -69,22 +65,11 @@ public class Reading {
         this.so2 = so2;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
-
-    public Sensor getSensor() {
-        return sensor;
-    }
-
-    public void setSensor(Sensor sensor) {
-        this.sensor = sensor;
-    }
-
-
 }
-
