@@ -1,12 +1,11 @@
 package hr.fer.tel.rassus.server.services;
 
 import hr.fer.tel.rassus.server.beans.Sensor;
+import hr.fer.tel.rassus.server.representations.SensorIdPostRepresentation;
 import hr.fer.tel.rassus.server.representations.SensorPostRepresentation;
-import hr.fer.tel.rassus.server.representations.SensorRepresentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -19,9 +18,9 @@ public class SensorService {
         this.sensorRepository = sensorRepository;
     }
 
-    public SensorPostRepresentation newSensor(Sensor sensor) {
+    public SensorIdPostRepresentation newSensor(Sensor sensor) {
         sensorRepository.save(sensor);
-        return new SensorPostRepresentation (sensorRepository.getSensorByLatitudeAndLongitude(sensor.getLatitude(), sensor.getLongitude()));
+        return new SensorIdPostRepresentation(sensorRepository.getSensorByLatitudeAndLongitude(sensor.getLatitude(), sensor.getLongitude()));
     }
 
     public List<Sensor> getSensors() {

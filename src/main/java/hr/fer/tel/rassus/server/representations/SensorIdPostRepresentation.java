@@ -2,17 +2,28 @@ package hr.fer.tel.rassus.server.representations;
 
 import hr.fer.tel.rassus.server.beans.Sensor;
 
-public class SensorPostRepresentation {
+public class SensorIdPostRepresentation {
+
+    long id;
     private double latitude;
     private double longitude;
     private String ip;
     private int port;
 
-    public SensorPostRepresentation(Sensor sensor) {
+    public SensorIdPostRepresentation(Sensor sensor) {
+        this.id = sensor.getId();
         this.latitude = sensor.getLatitude();
         this.longitude = sensor.getLongitude();
         this.ip = sensor.getIp();
         this.port = sensor.getPort();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public double getLatitude() {
